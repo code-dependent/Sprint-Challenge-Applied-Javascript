@@ -8,7 +8,12 @@ let articleSec = document.querySelector('.cards-container')
 function getCard(){
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
     .then(res=>{
+        console.log(res)
         res.data.articles.javascript.forEach(item => articleSec.appendChild(CreateCard(item)))
+        res.data.articles.bootstrap.forEach(item => articleSec.appendChild(CreateCard(item)))
+        res.data.articles.technology.forEach(item => articleSec.appendChild(CreateCard(item)))
+        res.data.articles.jquery.forEach(item => articleSec.appendChild(CreateCard(item)))
+        res.data.articles.node.forEach(item => articleSec.appendChild(CreateCard(item)))
 
     })
 }
@@ -34,11 +39,11 @@ function CreateCard(obj){
     name.textContent =`By ${obj.authorName}`
 
     // structure
+    imgContainer.appendChild(image)
+    author.appendChild(imgContainer)
+    author.appendChild(name)
     card.appendChild(headline)
     card.appendChild(author)
-    imgContainer.appendChild(image)
-    card.appendChild(imgContainer)
-    card.appendChild(name)
 
     
 
