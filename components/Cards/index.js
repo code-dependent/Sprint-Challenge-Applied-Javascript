@@ -9,11 +9,12 @@ function getCard(){
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
     .then(res=>{
         console.log(res)
-        res.data.articles.javascript.forEach(item => articleSec.appendChild(CreateCard(item)))
-        res.data.articles.bootstrap.forEach(item => articleSec.appendChild(CreateCard(item)))
-        res.data.articles.technology.forEach(item => articleSec.appendChild(CreateCard(item)))
-        res.data.articles.jquery.forEach(item => articleSec.appendChild(CreateCard(item)))
-        res.data.articles.node.forEach(item => articleSec.appendChild(CreateCard(item)))
+        let obj = res.data.articles
+        obj.javascript.forEach(item => articleSec.appendChild(CreateCard(item)))
+        obj.bootstrap.forEach(item => articleSec.appendChild(CreateCard(item)))
+        obj.technology.forEach(item => articleSec.appendChild(CreateCard(item)))
+        obj.jquery.forEach(item => articleSec.appendChild(CreateCard(item)))
+        obj.node.forEach(item => articleSec.appendChild(CreateCard(item)))
 
     })
 }
