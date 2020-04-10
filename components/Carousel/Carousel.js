@@ -7,15 +7,14 @@
     6. Have fun!
 */
 let carouselContainer = document.querySelector('.carousel-container')
-function getURL(){
-  axios.get('https://lambda-times-backend.herokuapp.com/articles')
-  .then(res=>{
-    let testar = res.data.articles.javascript.forEach(item=testar.push(item.authorPhoto))
-    console.log(testar)
-    carouselContainer.appendChild(carousel(testar))
-  })
-}
-function carousel(array){
+
+function carousel(){
+  let imgUrls = ["./assets/carousel/mountains.jpeg",
+                "./assets/carousel/computer.jpeg",
+                "./assets/carousel/trees.jpeg",
+                "./assets/carousel/turntable.jpeg"]
+
+
   let carousel = document.createElement('div')
   carousel.classList.add('carousel')
   let buttonL = document.createElement('div')
@@ -25,13 +24,20 @@ function carousel(array){
   buttonR.classList.add('right-button')
   buttonR.textContent = '>'
   carousel.appendChild(buttonL)
-  array.forEach(url=>{
+  
+  let img1 = document.createElement('img')
+
+  imgUrls.forEach(url=>{
     let img = document.createElement('img')
     img.src = url
+    
     carousel.appendChild(img)
     })
     carousel.appendChild(buttonR)
+    console.log(carousel)
+    return carousel
 }
+carouselContainer.appendChild(carousel())
 /* HTML:
   <div class="carousel">
     <div class="left-button"> < </div>
