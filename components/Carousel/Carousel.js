@@ -6,7 +6,38 @@
     5. Think of how you would animate this component. Make the cards slide in and out, or fade. It's up to you!
     6. Have fun!
 */
+let carouselContainer = document.querySelector('.carousel-container')
 
+function carousel(){
+  let imgUrls = ["./assets/carousel/mountains.jpeg",
+                "./assets/carousel/computer.jpeg",
+                "./assets/carousel/trees.jpeg",
+                "./assets/carousel/turntable.jpeg"]
+
+
+  let carousel = document.createElement('div')
+  carousel.classList.add('carousel')
+  let buttonL = document.createElement('div')
+  buttonL.classList.add('left-button')
+  buttonL.textContent = '<'
+  let buttonR = document.createElement('div')
+  buttonR.classList.add('right-button')
+  buttonR.textContent = '>'
+  carousel.appendChild(buttonL)
+  
+  let img1 = document.createElement('img')
+
+  imgUrls.forEach(url=>{
+    let img = document.createElement('img')
+    img.src = url
+    
+    carousel.appendChild(img)
+    })
+    carousel.appendChild(buttonR)
+    console.log(carousel)
+    return carousel
+}
+carouselContainer.appendChild(carousel())
 /* HTML:
   <div class="carousel">
     <div class="left-button"> < </div>
